@@ -4,10 +4,16 @@ Markdown blocks for Wagtail Streamfields.
 
 ## Example Usage
 
-    from wagtailmarkcontentstream import ContentStreamBlock
+    from wagtail.wagtailcore.models import Page
+    from wagtail.wagtailadmin.edit_handlers import StreamFieldPanel
+    from wagtailcontentstream import ContentStream
 
     class MyPage(Page):
-        body = ContentStreamBlock()
+        body = ContentStream()
+
+        content_panels = Page.content_panels + [
+            StreamFieldPanel('body'),
+        ]
 
 ## Contributors
 
