@@ -1,0 +1,6 @@
+{% load wagtailimages_tags %}
+
+<figure>
+  {% image self.image width-800 class="img img-responsive"  %}
+  <figcaption>{{self.caption}}</figcaption>
+</figure>
