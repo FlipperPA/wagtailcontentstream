@@ -2,7 +2,7 @@ from wagtail.wagtailcore.blocks import (
     RichTextBlock,
     TextBlock,
 )
-from wagtail.wagtailcore.fields import StreamField
+from wagtail.wagtailcore.blocks import StreamBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
 from wagtail.contrib.table_block.blocks import TableBlock
 from wagtailcodeblock.blocks import CodeBlock
@@ -10,7 +10,7 @@ from wagtailcodeblock.blocks import CodeBlock
 from .blocks import CaptionedImageBlock
 
 
-class ContentStream(StreamField):
+class ContentBlock(StreamBlock):
     paragraph = RichTextBlock(icon='fa-paragraph')
     heading = TextBlock(icon='fa-header', template='wagtailcontentstream/blocks/heading.html')
     image = CaptionedImageBlock()
@@ -19,4 +19,4 @@ class ContentStream(StreamField):
     code = CodeBlock(label='Code snippet')
 
     class Meta:
-        template = 'wagtailcontentstream/blocks/streamfield.html'
+        template = 'standard/blocks/streamfield.html'
