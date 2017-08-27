@@ -10,7 +10,7 @@ from wagtailcodeblock.blocks import CodeBlock
 from .blocks import CaptionedImageBlock
 
 
-class ContentBlock(StreamBlock):
+class ContentStream(StreamBlock):
     paragraph = RichTextBlock(icon='fa-paragraph')
     heading = TextBlock(icon='fa-header', template='wagtailcontentstream/blocks/heading.html')
     image = CaptionedImageBlock()
