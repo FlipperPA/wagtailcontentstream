@@ -18,18 +18,3 @@ class CaptionedImageBlock(StructBlock):
         icon = 'fa-image'
         template = 'wagtailcontentstream/blocks/captioned_image.html'
         help_text = 'Select an image and add a caption (optional).'
-
-
-class ContentStream(StreamBlock):
-    paragraph = RichTextBlock(
-        icon='fa-paragraph',
-        features=['bold', 'italic', 'link', 'ol', 'ul'],
-    )
-    heading = TextBlock(icon='fa-header', template='wagtailcontentstream/blocks/heading.html')
-    image = CaptionedImageBlock()
-    table = TableBlock(icon='fa-table')
-    embed = EmbedBlock(icon='fa-youtube-play')
-    code = CodeBlock(label='Code snippet')
-
-    class Meta:
-        template = 'standard/blocks/streamfield.html'
