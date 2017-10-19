@@ -29,6 +29,7 @@ Then in your template:
 
 #### Extended Usage: Adding More Fields
 
+    from django.conf import settings
     from django.db import models
     from wagtail.wagtailadmin.edit_handlers import FieldPanel
     from wagtailcontentstream.models import ContentStreamPage
@@ -36,9 +37,11 @@ Then in your template:
 
     class StandardPage(ContentStreamPage):
         date = models.DateField("Post Date")
+        authors = models.ManyToManyField(settings.AUTH_USER_MODEL)
 
         content_panels = [
             FieldPanel('date'),
+            FieldPanel('authors'),
         ] + ContentStreamPage.content_panels
 
 
