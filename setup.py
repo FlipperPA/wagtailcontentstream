@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 setup(
     name='wagtailcontentstream',
-    version="0.1.4",
+    version="0.2.0",
     description='Wagtail Content Stream provides a StreamField of standard content types.',
     author='Tim Allen',
     author_email='tallen@wharton.upenn.edu',
