@@ -1,11 +1,13 @@
 from wagtail.wagtailadmin.edit_handlers import StreamFieldPanel
+from wagtail.wagtailcore.fields import StreamField
 from wagtail.wagtailcore.models import Page
 
 from .blocks import ContentStreamBlock, SectionBlock
 
 
 class ContentStreamPage(Page):
-    body = ContentStreamBlock(
+    body = StreamField(
+        ContentStreamBlock(),
         blank=True,
         help='',
     )
@@ -19,7 +21,8 @@ class ContentStreamPage(Page):
 
 
 class SectionContentStreamPage(Page):
-    body = SectionBlock(
+    body = StreamField(
+        SectionBlock(),
         blank=True,
         help='',
     )
