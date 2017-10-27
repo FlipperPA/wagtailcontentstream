@@ -1,6 +1,6 @@
 # Wagtail Content Stream
 
-An abstract Django abstract model with a Wagtail StreamField named `body` with multiple blocks I use on a regular basis. It's opinioned: very little HTML is allowed in the text block, forcing authors to create structured data. The following blocks are included in the StreamField:
+An abstract Django model with a Wagtail StreamField named `body` with multiple blocks I use on a regular basis. It's opinioned: very little HTML is allowed in the text block, forcing authors to create structured data. The following blocks are included in the StreamField:
 
 * Heading
 * Paragraph
@@ -29,6 +29,7 @@ Then in your template:
 
 #### Extended Usage: Adding More Fields
 
+    from django.conf import settings
     from django.db import models
     from wagtail.wagtailadmin.edit_handlers import FieldPanel
     from wagtailcontentstream.models import ContentStreamPage
@@ -36,9 +37,11 @@ Then in your template:
 
     class StandardPage(ContentStreamPage):
         date = models.DateField("Post Date")
+        authors = models.ManyToManyField(settings.AUTH_USER_MODEL)
 
         content_panels = [
             FieldPanel('date'),
+            FieldPanel('authors'),
         ] + ContentStreamPage.content_panels
 
 
