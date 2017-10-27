@@ -9,7 +9,6 @@ class ContentStreamPage(Page):
     body = StreamField(
         ContentStreamBlock(),
         blank=True,
-        help='',
     )
 
     content_panels = Page.content_panels + [
@@ -24,7 +23,6 @@ class SectionContentStreamPage(Page):
     body = StreamField(
         SectionBlock(),
         blank=True,
-        help='',
     )
 
     content_panels = Page.content_panels + [
