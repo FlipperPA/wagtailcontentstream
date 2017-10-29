@@ -9,6 +9,8 @@ An abstract Django model with a Wagtail StreamField named `body` with multiple b
 * Table
 * Code Block
 
+A secondary page type, `SectionStandardPage`, provides sections headers for a bit more structure.
+
 ## Example Usage
 
 You will need to add `wagtailcodeblock` to your `INSTALLED_APPS` Django setting.
@@ -20,6 +22,9 @@ First, create a page type in your `models.py`:
     from wagtailcontentstream.models import ContentStreamPage
 
     class StandardPage(ContentStreamPage):
+        pass
+
+    class SectionStandardPage(SectionContentStreamPage):
         pass
 
 Then in your template:
