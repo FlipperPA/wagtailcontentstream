@@ -9,7 +9,7 @@ An abstract Django model with a Wagtail StreamField named `body` with multiple b
 * Table
 * Code Block
 
-A secondary page type, `SectionStandardPage`, provides sections headers for a bit more structure.
+A secondary page type, `SectionContentStreamPage`, provides sections headers for a bit more structure.
 
 ## Example Usage
 
