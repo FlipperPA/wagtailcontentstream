@@ -35,18 +35,27 @@ class ContentStreamBlock(StreamBlock):
     table = TableBlock(icon='table')
     code = CodeBlock(icon='code')
 
+    class Meta:
+        help_text = 'The main page body.'
 
-class SectionBlock(StructBlock):
+
+class SectionStructBlock(StructBlock):
     section_heading = TextBlock(
         icon='title',
         template='wagtailcontentstream/blocks/section_heading.html',
         help_text='Heading for this section.',
     )
     body = ContentStreamBlock(
-        help_text='The section content goes here.',
+        help_text='The body content goes here.',
     )
 
     class Meta:
-        icon = 'emoji-bookmark-tabs'
-        template = 'standard/blocks/section.html'
-        help_text = 'Sections divide the page into digestible parts.'
+        # icon = 'folder-open-inverse'
+        icon = 'doc-full-inverse'
+
+
+class SectionBlock(StreamBlock):
+    section = SectionStructBlock()
+
+    class Meta:
+        help_text = 'The main page body.'
