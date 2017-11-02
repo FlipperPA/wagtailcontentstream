@@ -19,36 +19,41 @@ You will need to add `wagtailcodeblock` to your `INSTALLED_APPS` Django setting.
 
 First, create a page type in your `models.py`:
 
-    from wagtailcontentstream.models import ContentStreamPage
+```python
+from wagtailcontentstream.models import ContentStreamPage
 
-    class StandardPage(ContentStreamPage):
-        pass
+class StandardPage(ContentStreamPage):
+    pass
 
-    class SectionStandardPage(SectionContentStreamPage):
-        pass
+class SectionStandardPage(SectionContentStreamPage):
+    pass
+```
 
 Then in your template:
 
-    <h1>{{ page.title }}</h2>
-    {{ page.body }}
+```html
+<h2>{{ page.title }}</h2>
+{{ page.body }}
+```
 
 #### Extended Usage: Adding More Fields
 
-    from django.conf import settings
-    from django.db import models
-    from wagtail.wagtailadmin.edit_handlers import FieldPanel
-    from wagtailcontentstream.models import ContentStreamPage
+```python
+from django.conf import settings
+from django.db import models
+from wagtail.wagtailadmin.edit_handlers import FieldPanel
+from wagtailcontentstream.models import ContentStreamPage
 
 
-    class StandardPage(ContentStreamPage):
-        date = models.DateField("Post Date")
-        authors = models.ManyToManyField(settings.AUTH_USER_MODEL)
+class StandardPage(ContentStreamPage):
+    date = models.DateField("Post Date")
+    authors = models.ManyToManyField(settings.AUTH_USER_MODEL)
 
-        content_panels = [
-            FieldPanel('date'),
-            FieldPanel('authors'),
-        ] + ContentStreamPage.content_panels
-
+    content_panels = [
+        FieldPanel('date'),
+        FieldPanel('authors'),
+    ] + ContentStreamPage.content_panels
+```
 
 ## Contributors
 
