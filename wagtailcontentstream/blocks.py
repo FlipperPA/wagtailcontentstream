@@ -42,7 +42,6 @@ class ContentStreamBlock(StreamBlock):
 class SectionStructBlock(StructBlock):
     section_heading = TextBlock(
         icon='title',
-        template='wagtailcontentstream/blocks/section_heading.html',
         help_text='Heading for this section.',
     )
     body = ContentStreamBlock(
@@ -50,7 +49,7 @@ class SectionStructBlock(StructBlock):
     )
 
     class Meta:
-        # icon = 'folder-open-inverse'
+        template = 'wagtailcontentstream/blocks/section_struct_block.html'
         icon = 'doc-full-inverse'
 
 
