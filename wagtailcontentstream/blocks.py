@@ -6,6 +6,7 @@ from wagtail.wagtailcore.blocks import (
     StreamBlock,
 )
 
+from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtailcodeblock.blocks import CodeBlock
@@ -31,6 +32,7 @@ class ContentStreamBlock(StreamBlock):
         features=['bold', 'italic', 'link', 'ol', 'ul'],
     )
     image = CaptionedImageBlock()
+    document = DocumentChooserBlock()
     embed = EmbedBlock(icon='media')
     table = TableBlock(icon='table')
     code = CodeBlock(icon='code')
