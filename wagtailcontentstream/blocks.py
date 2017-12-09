@@ -1,14 +1,26 @@
+# Wagtail 2.0 compatibility - new package paths
 from wagtail.contrib.table_block.blocks import TableBlock
-from wagtail.wagtailcore.blocks import (
-    RichTextBlock,
-    TextBlock,
-    StructBlock,
-    StreamBlock,
-)
+try:
+    from wagtail.core.blocks import (
+        RichTextBlock,
+        TextBlock,
+        StructBlock,
+        StreamBlock,
+    )
+    from wagtail.documents.blocks import DocumentChooserBlock
+    from wagtail.embeds.blocks import EmbedBlock
+    from wagtail.images.blocks import ImageChooserBlock
+except ImportError:
+    from wagtail.wagtailcore.blocks import (
+        RichTextBlock,
+        TextBlock,
+        StructBlock,
+        StreamBlock,
+    )
+    from wagtail.wagtaildocs.blocks import DocumentChooserBlock
+    from wagtail.wagtailembeds.blocks import EmbedBlock
+    from wagtail.wagtailimages.blocks import ImageChooserBlock
 
-from wagtail.wagtaildocs.blocks import DocumentChooserBlock
-from wagtail.wagtailembeds.blocks import EmbedBlock
-from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtailcodeblock.blocks import CodeBlock
 
 
