@@ -55,6 +55,32 @@ class StandardPage(ContentStreamPage):
     ] + ContentStreamPage.content_panels
 ```
 
-## Contributors
+# Change Log
+
+## 0.3
+
+* Wagtail 2.0 compatibility.
+
+## 0.2
+
+* Add a StreamBlock with sections.
+
+## 0.2.1
+
+* Help text and a bug fix for Section StreamBlocks.
+
+## 0.2.2
+
+* Improve block templates.
+
+## 0.2.3
+
+* Add Documents as a block type.
+
+# 0.1
+
+* Initial release.
+
+# Contributors
 
 * Timothy Allen (https://github.com/FlipperPA)
