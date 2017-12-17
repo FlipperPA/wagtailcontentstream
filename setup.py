@@ -11,7 +11,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'wagtail>=1.8',
-        'wagtailcodeblock',
+        'wagtailcodeblock>=0.4.0',
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
