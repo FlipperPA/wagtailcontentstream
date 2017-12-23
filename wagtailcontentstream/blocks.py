@@ -30,17 +30,6 @@ class CaptionedImageBlock(StructBlock):
     """
     An image block with a caption, credit, and alignment.
     """
-    CENTER = 1
-    FULL = 2
-    LEFT = 3
-    RIGHT = 4
-    ALIGN_CHOICES = (
-        (LEFT, 'left'),
-        (RIGHT, 'right'),
-        (CENTER, 'center'),
-        (FULL, 'full width'),
-    )
-
     image = ImageChooserBlock(
         help_text='The image to display.',
     )
@@ -70,6 +59,9 @@ class CaptionedImageBlock(StructBlock):
 
 
 class ContentStreamBlock(StreamBlock):
+    """
+    Contains the elements we'll want to have in a Content Stream.
+    """
     heading = TextBlock(
         icon='title',
         template='wagtailcontentstream/blocks/heading.html',
@@ -89,6 +81,9 @@ class ContentStreamBlock(StreamBlock):
 
 
 class SectionStructBlock(StructBlock):
+    """
+    Contains the elements we'll want to have in a Sectioned Content Stream block.
+    """
     section_heading = TextBlock(
         icon='title',
         help_text='Heading for this section.',
@@ -103,6 +98,9 @@ class SectionStructBlock(StructBlock):
 
 
 class SectionBlock(StreamBlock):
+    """
+    Streamblock to associate multiple blocks with a section.
+    """
     section = SectionStructBlock()
 
     class Meta:
