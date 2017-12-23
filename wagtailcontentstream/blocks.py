@@ -2,6 +2,7 @@
 from wagtail.contrib.table_block.blocks import TableBlock
 try:
     from wagtail.core.blocks import (
+        ChoiceBlock,
         RichTextBlock,
         TextBlock,
         StructBlock,
@@ -12,6 +13,7 @@ try:
     from wagtail.images.blocks import ImageChooserBlock
 except ImportError:
     from wagtail.wagtailcore.blocks import (
+        ChoiceBlock,
         RichTextBlock,
         TextBlock,
         StructBlock,
@@ -25,8 +27,41 @@ from wagtailcodeblock.blocks import CodeBlock
 
 
 class CaptionedImageBlock(StructBlock):
-    image = ImageChooserBlock()
-    caption = TextBlock(required=False)
+    """
+    An image block with a caption, credit, and alignment.
+    """
+    CENTER = 1
+    FULL = 2
+    LEFT = 3
+    RIGHT = 4
+    ALIGN_CHOICES = (
+        (LEFT, 'left'),
+        (RIGHT, 'right'),
+        (CENTER, 'center'),
+        (FULL, 'full width'),
+    )
+
+    image = ImageChooserBlock(
+        help_text='The image to display.',
+    )
+    caption = TextBlock(
+        required=False,
+        help_text='The caption will appear under the image, if entered.'
+    )
+    credit = TextBlock(
+        required=False,
+        help_text='The credit will appear under the image, if entered.'
+    )
+    align = ChoiceBlock(
+        choices=[
+            ('left', 'Left'),
+            ('right', 'Right'),
+            ('center', 'Center'),
+            ('full', 'Full Width'),
+        ],
+        default='left',
+        help_text='How to align the image in the body of the page.'
+    )
 
     class Meta:
         icon = 'image'

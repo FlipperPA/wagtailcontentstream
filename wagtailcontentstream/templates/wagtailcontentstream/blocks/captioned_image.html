@@ -1,6 +1,12 @@
 {% load wagtailimages_tags %}
 
-<figure>
-  {% image self.image width-800 class="img img-responsive"  %}
-  <figcaption>{{self.caption}}</figcaption>
+<figure class="figure border border-primary {% if self.align == 'left' %}float-left{% elif self.align == 'right' %}float-right{% elif self.align == 'center' %}text-center{% else %}text-center{% endif %}">
+    {% image self.image width-800 class="figure-img img-fluid" %}
+
+    {% if self.caption|length %}
+        <figcaption>{{ self.caption }}</figcaption>
+    {% endif %}
+    {% if self.credit|length %}
+        <figcaption>Credit: {{ self.credit }}</figcaption>
+    {% endif %}
 </figure>
