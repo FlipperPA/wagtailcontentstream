@@ -61,6 +61,10 @@ class StandardPage(ContentStreamPage):
 
 * Wagtail 2.0 compatibility.
 
+## 0.3.1
+
+* Add support for alignment and credit of CaptionedImageBlock.
+
 ## 0.2
 
 * Add a StreamBlock with sections.
