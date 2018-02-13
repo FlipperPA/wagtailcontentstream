@@ -31,7 +31,7 @@ class SectionStandardPage(SectionContentStreamPage):
 
 Then in your template:
 
-```html
+```django+html
 {% load wagtailcore_tags %}
 
 <h2>{{ page.title }}</h2>
