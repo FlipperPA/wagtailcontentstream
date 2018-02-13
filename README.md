@@ -32,8 +32,10 @@ class SectionStandardPage(SectionContentStreamPage):
 Then in your template:
 
 ```html
+{% load wagtailcore_tags %}
+
 <h2>{{ page.title }}</h2>
-{{ page.body }}
+{% include_block page.body %}
 ```
 
 #### Extended Usage: Adding More Fields
