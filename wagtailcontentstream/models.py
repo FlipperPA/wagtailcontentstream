@@ -1,6 +1,12 @@
-from wagtail.wagtailadmin.edit_handlers import StreamFieldPanel
-from wagtail.wagtailcore.fields import StreamField
-from wagtail.wagtailcore.models import Page
+# Wagtail 2.0 compatibility - new package paths
+try:
+    from wagtail.admin.edit_handlers import StreamFieldPanel
+    from wagtail.core.fields import StreamField
+    from wagtail.core.models import Page
+except ImportError:
+    from wagtail.wagtailadmin.edit_handlers import StreamFieldPanel
+    from wagtail.wagtailcore.fields import StreamField
+    from wagtail.wagtailcore.models import Page
 
 from .blocks import ContentStreamBlock, SectionBlock
 

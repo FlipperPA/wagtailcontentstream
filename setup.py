@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 setup(
     name='wagtailcontentstream',
-    version="0.2.3",
+    version="0.3.1",
     description='Wagtail Content Stream provides a StreamField of standard content types.',
     author='Tim Allen',
     author_email='tallen@wharton.upenn.edu',
@@ -11,10 +11,10 @@ setup(
     zip_safe=False,
     install_requires=[
         'wagtail>=1.8',
-        'wagtailcodeblock',
+        'wagtailcodeblock>=0.4.0',
     ],
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
@@ -22,6 +22,7 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
         'Framework :: Django',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
