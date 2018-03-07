@@ -68,7 +68,7 @@ class ContentStreamBlock(StreamBlock):
     )
     paragraph = RichTextBlock(
         icon='pilcrow',
-        features=['bold', 'italic', 'link', 'ol', 'ul'],
+        features=['bold', 'italic', 'link', 'ol', 'ul', 'monospace'],
     )
     image = CaptionedImageBlock()
     document = DocumentChooserBlock()
