@@ -1,6 +1,13 @@
-from wagtail.admin.rich_text.converters.html_to_contentstate import InlineStyleElementHandler
-from wagtail.admin.rich_text.editors.draftail.features import InlineStyleFeature
-from wagtail.core import hooks
+try:
+    # Wagtail 2+
+    from wagtail.admin.rich_text.converters.html_to_contentstate import InlineStyleElementHandler
+    from wagtail.admin.rich_text.editors.draftail.features import InlineStyleFeature
+    from wagtail.core import hooks
+except ImportError:
+    # Wagtail 1.x
+    from wagtail.wagtailadmin.rich_text.converters.html_to_contentstate import InlineStyleElementHandler
+    from wagtail.wagtailadmin.rich_text.editors.draftail.features import InlineStyleFeature
+    from wagtail.wagtailcore import hooks
 
 
 @hooks.register('register_rich_text_features')
