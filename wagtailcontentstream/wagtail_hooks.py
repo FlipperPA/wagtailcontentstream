@@ -32,4 +32,5 @@ def register_monospace_feature(features):
     }
 
     # Call register_converter_rule to register the content transformation conversion.
+    features.default_features.append(feature_name)
     features.register_converter_rule('contentstate', feature_name, db_conversion)
