@@ -84,6 +84,7 @@ class ContentStreamBlockWithRawCode(ContentStreamBlock):
     raw_code = CodeBlock(
         icon='code',
         language='html',
+        template='wagtailcodeblock/raw_code.html',
     )
 
 
