@@ -1,8 +1,14 @@
 from setuptools import setup, find_packages
+
+with open('README.md') as f:
+    long_description = f.read()
+
 setup(
     name='wagtailcontentstream',
     version="0.4.0",
     description='Wagtail Content Stream provides a StreamField of standard content types.',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     author='Tim Allen',
     author_email='tallen@wharton.upenn.edu',
     url='https://github.com/FlipperPA/wagtailcontentstream',
