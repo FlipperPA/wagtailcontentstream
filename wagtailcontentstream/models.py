@@ -8,12 +8,26 @@ except ImportError:
     from wagtail.wagtailcore.fields import StreamField
     from wagtail.wagtailcore.models import Page
 
-from .blocks import ContentStreamBlock, SectionBlock
+from .blocks import ContentStreamBlock, ContentStreamBlockWithRawCode, SectionBlock
 
 
 class ContentStreamPage(Page):
     body = StreamField(
         ContentStreamBlock(),
+        blank=True,
+    )
+
+    content_panels = Page.content_panels + [
+        StreamFieldPanel('body'),
+    ]
+
+    class Meta:
+        abstract = True
+
+
+class ContentStreamPageWithRawCode(Page):
+    body = StreamField(
+        ContentStreamBlockWithRawCode(),
         blank=True,
     )
 

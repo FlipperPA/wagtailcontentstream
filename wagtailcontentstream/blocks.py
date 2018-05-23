@@ -80,6 +80,13 @@ class ContentStreamBlock(StreamBlock):
         help_text = 'The main page body.'
 
 
+class ContentStreamBlockWithRawCode(ContentStreamBlock):
+    raw_code = CodeBlock(
+        icon='code',
+        language='html',
+    )
+
+
 class SectionStructBlock(StructBlock):
     """
     Contains the elements we'll want to have in a Sectioned Content Stream block.
