@@ -1,6 +1,6 @@
 # Wagtail Content Stream
 
-An abstract Django model with a Wagtail StreamField named `body` with multiple blocks I use on a regular basis. It's opinioned: very little HTML is allowed in the text block, forcing authors to create structured data. The following blocks are included in the StreamField:
+An abstract Django model with a Wagtail StreamField named `body` with multiple blocks I use on a regular basis. It's opinioned: very little HTML is allowed in the text block, forcing authors to create structured data. The following blocks are included in the StreamBlock, `ContentStreamBlock`:
 
 * Heading
 * Paragraph
@@ -9,7 +9,9 @@ An abstract Django model with a Wagtail StreamField named `body` with multiple b
 * Table
 * Code Block
 
-A secondary page type, `SectionContentStreamPage`, provides sections headers for a bit more structure.
+A secondary StreamBlock, `ContentStreamBlockWithRawCode`, also provides an additional block for injecting HTML, JS, and CSS code. Use with care, as this can really blow up your markup and is a potential code injection point!
+
+Three pages types are provided out-of-the-box.
 
 ## Example Usage
 
@@ -20,12 +22,15 @@ You will need to add `wagtailcodeblock` to your `INSTALLED_APPS` Django setting.
 First, create a page type in your `models.py`:
 
 ```python
-from wagtailcontentstream.models import ContentStreamPage
+from wagtailcontentstream.models import ContentStreamPage, SectionContentStreamPage, ContentStreamPageWithRawCode
 
 class StandardPage(ContentStreamPage):
     pass
 
 class SectionStandardPage(SectionContentStreamPage):
+    pass
+
+class StandardPageWithRawCode(ContentStreamPageWithRawCode):
     pass
 ```
 
@@ -58,6 +63,10 @@ class StandardPage(ContentStreamPage):
 ```
 
 # Change Log
+
+## 0.4
+
+* Added ContentStreamPageWithRawCode and ContentStreamBlockWithRawCode for injecting raw code into pages.
 
 ## 0.3
 
