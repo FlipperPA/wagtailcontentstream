@@ -48,7 +48,7 @@ Then in your template:
 ```python
 from django.conf import settings
 from django.db import models
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
+from wagtail.admin.edit_handlers import FieldPanel
 from wagtailcontentstream.models import ContentStreamPage
 
 
