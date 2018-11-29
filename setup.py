@@ -5,7 +5,7 @@ with open('README.md') as f:
 
 setup(
     name='wagtailcontentstream',
-    version="0.4.0",
+    version="0.4.1",
     description='Wagtail Content Stream provides a StreamField of standard content types.',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -29,7 +29,11 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3 :: Only',
         'Framework :: Django',
+        'Framework :: Django :: 2.0',
+        'Framework :: Wagtail',
+        'Framework :: Wagtail :: 2',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
