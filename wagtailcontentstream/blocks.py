@@ -1,6 +1,18 @@
-# Wagtail 2.0 compatibility - new package paths
+from wagtail import VERSION as WAGTAIL_VERSION
 from wagtail.contrib.table_block.blocks import TableBlock
-try:
+
+if WAGTAIL_VERSION >= (3, 0):
+    from wagtail.blocks import (
+        ChoiceBlock,
+        RichTextBlock,
+        TextBlock,
+        StructBlock,
+        StreamBlock,
+    )
+    from wagtail.documents.blocks import DocumentChooserBlock
+    from wagtail.embeds.blocks import EmbedBlock
+    from wagtail.images.blocks import ImageChooserBlock
+else:
     from wagtail.core.blocks import (
         ChoiceBlock,
         RichTextBlock,
@@ -11,17 +23,6 @@ try:
     from wagtail.documents.blocks import DocumentChooserBlock
     from wagtail.embeds.blocks import EmbedBlock
     from wagtail.images.blocks import ImageChooserBlock
-except ImportError:
-    from wagtail.wagtailcore.blocks import (
-        ChoiceBlock,
-        RichTextBlock,
-        TextBlock,
-        StructBlock,
-        StreamBlock,
-    )
-    from wagtail.wagtaildocs.blocks import DocumentChooserBlock
-    from wagtail.wagtailembeds.blocks import EmbedBlock
-    from wagtail.wagtailimages.blocks import ImageChooserBlock
 
 from wagtailcodeblock.blocks import CodeBlock
 
