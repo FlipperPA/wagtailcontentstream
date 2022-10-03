@@ -1,6 +1,6 @@
 # Wagtail Content Stream
 
-An abstract Django model with a Wagtail StreamField named `body` with multiple blocks I use on a regular basis. It's opinioned: very little HTML is allowed in the text block, forcing authors to create structured data. The following blocks are included in the StreamBlock, `ContentStreamBlock`:
+An abstract Django model with a Wagtail StreamField named `body` with multiple blocks I use on a regular basis. This is geared towards developers who need to write examples with code in them. It's opinionated: very little HTML is allowed in the text block, forcing authors to create structured data. The following blocks are included in `ContentStreamBlock`:
 
 * Heading
 * Paragraph
