@@ -62,40 +62,11 @@ class StandardPage(ContentStreamPage):
     ] + ContentStreamPage.content_panels
 ```
 
-# Change Log
+# Release Notes & Contributors
 
-## 0.4
+* Thank you to our [wonderful contributors](https://github.com/FlipperPA/wagtailcontentstream/graphs/contributors)!
+* Release notes are [available on GitHub](https://github.com/FlipperPA/wagtailcontentstream/releases).
 
-* Added ContentStreamPageWithRawCode and ContentStreamBlockWithRawCode for injecting raw code into pages.
-
-## 0.3
-
-* Wagtail 2.0 compatibility.
-
-## 0.3.1
-
-* Add support for alignment and credit of CaptionedImageBlock.
-
-## 0.2
-
-* Add a StreamBlock with sections.
-
-## 0.2.1
-
-* Help text and a bug fix for Section StreamBlocks.
-
-## 0.2.2
-
-* Improve block templates.
-
-## 0.2.3
-
-* Add Documents as a block type.
-
-# 0.1
-
-* Initial release.
-
-# Contributors
+# Project Maintainer
 
 * Timothy Allen (https://github.com/FlipperPA)
