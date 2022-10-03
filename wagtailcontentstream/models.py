@@ -18,7 +18,7 @@ class ContentStreamPage(Page):
     )
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel('body'),
+        StreamFieldPanel("body"),
     ]
 
     class Meta:
@@ -32,7 +32,7 @@ class ContentStreamPageWithRawCode(Page):
     )
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel('body'),
+        StreamFieldPanel("body"),
     ]
 
     class Meta:
@@ -46,7 +46,7 @@ class SectionContentStreamPage(Page):
     )
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel('body'),
+        StreamFieldPanel("body"),
     ]
 
     class Meta:

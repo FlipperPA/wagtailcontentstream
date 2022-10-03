@@ -31,61 +31,61 @@ class CaptionedImageBlock(StructBlock):
     """
     An image block with a caption, credit, and alignment.
     """
+
     image = ImageChooserBlock(
-        help_text='The image to display.',
+        help_text="The image to display.",
     )
     caption = TextBlock(
-        required=False,
-        help_text='The caption will appear under the image, if entered.'
+        required=False, help_text="The caption will appear under the image, if entered."
     )
     credit = TextBlock(
-        required=False,
-        help_text='The credit will appear under the image, if entered.'
+        required=False, help_text="The credit will appear under the image, if entered."
     )
     align = ChoiceBlock(
         choices=[
-            ('left', 'Left'),
-            ('right', 'Right'),
-            ('center', 'Center'),
-            ('full', 'Full Width'),
+            ("left", "Left"),
+            ("right", "Right"),
+            ("center", "Center"),
+            ("full", "Full Width"),
         ],
-        default='left',
-        help_text='How to align the image in the body of the page.'
+        default="left",
+        help_text="How to align the image in the body of the page.",
     )
 
     class Meta:
-        icon = 'image'
-        template = 'wagtailcontentstream/blocks/captioned_image.html'
-        help_text = 'Select an image and add a caption (optional).'
+        icon = "image"
+        template = "wagtailcontentstream/blocks/captioned_image.html"
+        help_text = "Select an image and add a caption (optional)."
 
 
 class ContentStreamBlock(StreamBlock):
     """
     Contains the elements we'll want to have in a Content Stream.
     """
+
     heading = TextBlock(
-        icon='title',
-        template='wagtailcontentstream/blocks/heading.html',
+        icon="title",
+        template="wagtailcontentstream/blocks/heading.html",
     )
     paragraph = RichTextBlock(
-        icon='pilcrow',
-        features=['bold', 'italic', 'link', 'ol', 'ul', 'monospace'],
+        icon="pilcrow",
+        features=["bold", "italic", "link", "ol", "ul", "monospace"],
     )
     image = CaptionedImageBlock()
     document = DocumentChooserBlock()
-    embed = EmbedBlock(icon='media')
-    table = TableBlock(icon='table')
-    code = CodeBlock(icon='code')
+    embed = EmbedBlock(icon="media")
+    table = TableBlock(icon="table")
+    code = CodeBlock(icon="code")
 
     class Meta:
-        help_text = 'The main page body.'
+        help_text = "The main page body."
 
 
 class ContentStreamBlockWithRawCode(ContentStreamBlock):
     raw_code = CodeBlock(
-        icon='code',
-        language='html',
-        template='wagtailcodeblock/raw_code.html',
+        icon="code",
+        language="html",
+        template="wagtailcodeblock/raw_code.html",
     )
 
 
@@ -93,24 +93,26 @@ class SectionStructBlock(StructBlock):
     """
     Contains the elements we'll want to have in a Sectioned Content Stream block.
     """
+
     section_heading = TextBlock(
-        icon='title',
-        help_text='Heading for this section.',
+        icon="title",
+        help_text="Heading for this section.",
     )
     body = ContentStreamBlock(
-        help_text='The body content goes here.',
+        help_text="The body content goes here.",
     )
 
     class Meta:
-        template = 'wagtailcontentstream/blocks/section_struct_block.html'
-        icon = 'doc-full-inverse'
+        template = "wagtailcontentstream/blocks/section_struct_block.html"
+        icon = "doc-full-inverse"
 
 
 class SectionBlock(StreamBlock):
     """
     Streamblock to associate multiple blocks with a section.
     """
+
     section = SectionStructBlock()
 
     class Meta:
-        help_text = 'The main page body.'
+        help_text = "The main page body."
