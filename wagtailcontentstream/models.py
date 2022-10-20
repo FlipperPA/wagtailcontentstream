@@ -1,12 +1,14 @@
-# Wagtail 2.0 compatibility - new package paths
-try:
-    from wagtail.admin.edit_handlers import StreamFieldPanel
+from wagtail import VERSION as WAGTAIL_VERSION
+
+
+if WAGTAIL_VERSION >= (3, 0):
+    from wagtail.admin.panels import FieldPanel
+    from wagtail.fields import StreamField
+    from wagtail.models import Page
+else:
+    from wagtail.admin.edit_handlers import StreamFieldPanel as FieldPanel
     from wagtail.core.fields import StreamField
     from wagtail.core.models import Page
-except ImportError:
-    from wagtail.wagtailadmin.edit_handlers import StreamFieldPanel
-    from wagtail.wagtailcore.fields import StreamField
-    from wagtail.wagtailcore.models import Page
 
 from .blocks import ContentStreamBlock, ContentStreamBlockWithRawCode, SectionBlock
 
@@ -18,7 +20,7 @@ class ContentStreamPage(Page):
     )
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel("body"),
+        FieldPanel("body"),
     ]
 
     class Meta:
@@ -32,7 +34,7 @@ class ContentStreamPageWithRawCode(Page):
     )
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel("body"),
+        FieldPanel("body"),
     ]
 
     class Meta:
@@ -46,7 +48,7 @@ class SectionContentStreamPage(Page):
     )
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel("body"),
+        FieldPanel("body"),
     ]
 
     class Meta:
